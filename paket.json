@@ -1,4 +1,18 @@
 {
+    "paket": [
+        {
+            "id": 1,
+            "nama_paket": "Pribadi"
+        },
+        {
+            "id": 2,
+            "nama_paket": "Bisnis"
+        },
+        {
+            "id": 3,
+            "nama_paket": "Desain"
+        }
+    ],
     "layanan": [
         {
             "id": 1,
@@ -152,6 +166,32 @@
                 "Copy Writing",
                 "Free Logo Design"
             ]
+        }
+    ],
+    "produk": [
+        {
+            "id": 1,
+            "kategori_id": 1,
+            "nama_produk": "Digital Store Website",
+            "gambar_produk": "sampul_digital.png"
+        },
+        {
+            "id": 2,
+            "kategori_id": 4,
+            "nama_produk": "Skincare Beauty Website",
+            "gambar_produk": "sampul_bakery.png"
+        },
+        {
+            "id": 3,
+            "kategori_id": 2,
+            "nama_produk": "Automotive Website",
+            "gambar_produk": "sampul_digital.png"
+        },
+        {
+            "id": 4,
+            "kategori_id": 1,
+            "nama_produk": "Digital Store 2 Website",
+            "gambar_produk": "sampul_digital.png"
         }
     ]
 }

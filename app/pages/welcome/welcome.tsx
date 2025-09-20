@@ -1,9 +1,9 @@
 import { useState } from "react";
-import Modal from "../components/modal";
-import Profil from "../components/profil";
-import Layanan from "../components/layanan";
-import Produk from "../components/produk";
-import Testimoni from "../components/testimoni";
+import Modal from "../../components/modal";
+import Profil from "../../components/profil";
+import Layanan from "../../components/layanan";
+import Produk from "../../components/produk";
+import Testimoni from "../../components/testimoni";
 
 import { FcGoogle } from "react-icons/fc";
 import { IoIosArrowDown } from "react-icons/io";
@@ -466,11 +466,10 @@ export function Welcome() {
                       className="w-full flex items-center justify-between px-4 py-3 font-semibold bg-gray-100 hover:bg-gray-200">
                       <span>{item.title}</span>
                       <IoIosArrowDown
-                        className={`transition-transform duration-300 ${
-                          activeAccordion === item.id
-                            ? "rotate-180"
-                            : "rotate-0"
-                        }`}
+                        className={`transition-transform duration-300 ${activeAccordion === item.id
+                          ? "rotate-180"
+                          : "rotate-0"
+                          }`}
                       />
                     </button>
                     {activeAccordion === item.id && (
@@ -518,7 +517,7 @@ export function Welcome() {
               website kami.
             </p>
           </div>
-          
+
           <Testimoni />
         </section>
 
@@ -545,17 +544,17 @@ export function Welcome() {
                       className="w-full flex justify-between items-center p-4 font-semibold text-left"
                       onClick={() =>
                         setActiveKontak(
-                          activeKontak === item.id ? "" : item.id
+                          activeKontak === item.id.toString() ? "" : item.id.toString()
                         )
                       }>
                       {item.pertanyaan}
-                      {activeKontak === item.id ? (
+                      {activeKontak === item.id.toString() ? (
                         <IoIosArrowDown className="w-5 h-5 transform rotate-180" />
                       ) : (
                         <IoIosArrowDown className="w-5 h-5 transform rotate-0" />
                       )}
                     </button>
-                    {activeKontak === item.id && (
+                    {activeKontak === item.id.toString() && (
                       <div className="px-4 pb-4 text-gray-600">
                         {item.jawaban}
                       </div>
