@@ -1,89 +1,621 @@
-import logoDark from "./logo-dark.svg";
-import logoLight from "./logo-light.svg";
+import { useState } from "react";
+import Modal from "../components/modal";
+import Profil from "../components/profil";
+import Layanan from "../components/layanan";
+import Produk from "../components/produk";
+import Testimoni from "../components/testimoni";
+
+import { FcGoogle } from "react-icons/fc";
+import { IoIosArrowDown } from "react-icons/io";
+import { FaWhatsapp, FaEnvelope, FaInstagram, FaTiktok, FaYoutube } from "react-icons/fa";
+
+const tampilkanModalLogin = (setModalLogin: any) => {
+  setModalLogin(true);
+};
+
+const accordionItems = [
+  {
+    id: "layanan1",
+    title: "Pembuatan Website",
+    content:
+      "Kami membangun website modern, responsif, dan SEO friendly untuk mendukung pertumbuhan bisnis Anda.",
+  },
+  {
+    id: "layanan2",
+    title: "Hosting & Server",
+    content:
+      "Layanan hosting cepat, aman, dan stabil untuk menjaga website Anda selalu online tanpa hambatan.",
+  },
+  {
+    id: "layanan3",
+    title: "Desain UI/UX",
+    content:
+      "Desain antarmuka modern yang menarik dan mudah digunakan untuk meningkatkan pengalaman pengguna.",
+  },
+  {
+    id: "layanan4",
+    title: "Maintenance & Support",
+    content:
+      "Dukungan teknis dan pemeliharaan rutin agar website Anda tetap optimal dan bebas dari masalah.",
+  },
+];
+
+const accordionKontak = [
+  {
+    id: 1,
+    pertanyaan: "Berapa lama waktu pembuatan website?",
+    jawaban: "Biasanya sekitar 2–4 minggu tergantung kompleksitas website.",
+  },
+  {
+    id: 2,
+    pertanyaan: "Apakah bisa request desain custom?",
+    jawaban: "Ya, kami bisa menyesuaikan desain sesuai kebutuhan bisnis Anda.",
+  },
+  {
+    id: 3,
+    pertanyaan: "Apakah ada layanan maintenance?",
+    jawaban: "Tentu, kami menyediakan paket maintenance bulanan.",
+  },
+];
 
 export function Welcome() {
+  const [modalLogin, setModalLogin] = useState(false);
+  const [modalRegister, setModalRegister] = useState(false);
+  const [activeAccordion, setActiveAccordion] = useState("layanan1");
+  const [activeKontak, setActiveKontak] = useState("kontak1");
+
   return (
-    <main className="flex items-center justify-center pt-16 pb-4">
-      <div className="flex-1 flex flex-col items-center gap-16 min-h-0">
-        <header className="flex flex-col items-center gap-9">
-          <div className="w-[500px] max-w-[100vw] p-4">
+    <main>
+      {/* Modal */}
+      <Modal show={modalLogin} setter={setModalLogin} modalName="Modal Login">
+        <div className="form font-poppins">
+          <h1 className="font-extrabold text-center mb-4 mt-2">
+            <span className="text-blue-500 text-[20px]">Mostly</span>
+            <span className="text-orange-500 text-[20px]">Web</span>
+          </h1>
+
+          <form action="" className="grid gap-4">
+            <p className="text-blue-500 font-semibold">
+              Silahkan Masukan Akun Anda
+            </p>
+            <div className="grid gap-4">
+              <div className="w-full">
+                <input
+                  type="email"
+                  className="w-full shadow-md py-2 px-2 rounded-lg"
+                  name=""
+                  id=""
+                  placeholder="Email"
+                />
+              </div>
+              <div className="w-full">
+                <input
+                  type="password"
+                  className="w-full shadow-md py-2 px-2 rounded-lg"
+                  name=""
+                  id=""
+                  placeholder="Password"
+                />
+              </div>
+            </div>
+            <button className="bg-blue-500 text-white font-semibold py-2 px-2 rounded-lg mt-4 mb-4 hover:bg-orange-500 hover:text-black">
+              Masuk
+            </button>
+            <p className="text-blue-500 font-semibold">Atau Masuk Dengan</p>
+            <button className="w-full shadow-md text-white mx-auto rounded-md flex justify-center items-center py-2">
+              <FcGoogle size={24} />
+            </button>
+            <p className="text-blue-500 mt-4 font-semibold">
+              Belum memiliki akun? Silahkan{" "}
+              <a
+                onClick={() => {
+                  setModalLogin(false);
+                  setModalRegister(true);
+                }}
+                className="text-orange-500 hover:text-blue-500"
+                href="#"
+              >
+                Daftar Akun
+              </a>
+            </p>
+          </form>
+        </div>
+      </Modal>
+
+      <Modal
+        show={modalRegister}
+        setter={setModalRegister}
+        modalName="Modal Register"
+      >
+        <div className="form font-poppins">
+          <h1 className="font-extrabold text-center mb-4 mt-2">
+            <span className="text-blue-500 text-[20px]">Mostly</span>
+            <span className="text-orange-500 text-[20px]">Web</span>
+          </h1>
+
+          <form action="" className="grid gap-4">
+            <p className="text-blue-500 font-semibold">
+              Silahkan Daftarkan Akun Anda
+            </p>
+            <div className="grid gap-4">
+              <div className="w-full">
+                <input
+                  type="text"
+                  className="w-full shadow-md py-2 px-2 rounded-lg"
+                  name=""
+                  id=""
+                  placeholder="Nama"
+                />
+              </div>
+              <div className="w-full">
+                <input
+                  type="text"
+                  className="w-full shadow-md py-2 px-2 rounded-lg"
+                  name=""
+                  id=""
+                  placeholder="No HP"
+                />
+              </div>
+              <div className="w-full">
+                <input
+                  type="email"
+                  className="w-full shadow-md py-2 px-2 rounded-lg"
+                  name=""
+                  id=""
+                  placeholder="Email"
+                />
+              </div>
+              <div className="w-full">
+                <input
+                  type="password"
+                  className="w-full shadow-md py-2 px-2 rounded-lg"
+                  name=""
+                  id=""
+                  placeholder="Password"
+                />
+              </div>
+            </div>
+            <button className="bg-blue-500 text-white font-semibold py-2 px-2 rounded-lg mt-4 mb-4 hover:bg-orange-500 hover:text-black">
+              Daftar
+            </button>
+            <p className="text-blue-500 font-semibold">Atau Daftar Dengan</p>
+            <button className="w-full shadow-md text-white mx-auto rounded-md flex justify-center items-center py-2">
+              <FcGoogle size={24} />
+            </button>
+            <p className="text-blue-500 mt-4 font-semibold">
+              Sudah memiliki akun? Silahkan{" "}
+              <a
+                onClick={() => {
+                  setModalLogin(true);
+                  setModalRegister(false);
+                }}
+                className="text-orange-500 hover:text-blue-500"
+                href="#"
+              >
+                Masuk
+              </a>
+            </p>
+          </form>
+        </div>
+      </Modal>
+
+      <div className="bg-light-500 min-h-screen font-poppins">
+        <div className="absolute bottom-0 right-15 w-[600px]">
+          <img src="public/img/homepage.png" alt="" />
+        </div>
+
+        {/* Navbar */}
+        <nav className="px-20 py-2 flex items-center justify-between">
+          <div className="flex items-center">
+            <img src="public/img/logo.png" alt="Logo" className="w-24" />
+          </div>
+
+          <ul className="flex space-x-10 font-bold text-blue-500">
+            <li>
+              <a href="#" className="text-blue-500">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="#" className="text-blue-500">
+                Profil
+              </a>
+            </li>
+            <li>
+              <a href="#" className="text-blue-500">
+                Layanan
+              </a>
+            </li>
+            <li>
+              <a href="#" className="text-blue-500">
+                Produk
+              </a>
+            </li>
+            <li>
+              <a href="#" className="text-blue-500">
+                Kontak
+              </a>
+            </li>
+          </ul>
+
+          <div className="space-x-3">
+            <button
+              onClick={() => tampilkanModalLogin(setModalLogin)}
+              className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-orange-500 font-bold"
+            >
+              Login
+            </button>
+            <button
+              onClick={() => tampilkanModalLogin(setModalRegister)}
+              className="px-4 py-2 border border-blue-500 bg-transparent text-blue-500 rounded-lg font-bold hover:bg-blue-500 hover:text-white"
+            >
+              Register
+            </button>
+          </div>
+        </nav>
+
+        {/* Hero */}
+        <section className="w-4/5 mx-auto mt-20">
+          <div className="text-blue-500">
+            <h1 className="text-[60px] font-bold leading-tight">
+              Jasa Pembuatan <br /> Website Profesional
+            </h1>
+            <p className="w-1/2 text-1xl mt-6">
+              Tingkatkan citra & kepercayaan bisnismu dengan website desain
+              profesional harga mulai dari 500 ribuan, dengan fitur lengkap
+              aktif 24 jam dengan jangkauan tanpa batas
+            </p>
+            <button className="bg-blue-500 text-white rounded-lg px-24 py-2 mt-8 font-semibold hover:bg-orange-500">
+              Produk
+            </button>
+          </div>
+        </section>
+
+        {/* Tools */}
+        <section className="bg-white mt-55 py-12 overflow-hidden relative">
+          <div className="slide-track flex space-x-20">
             <img
-              src={logoLight}
-              alt="React Router"
-              className="block w-full dark:hidden"
+              src="public/img/logo/html.png"
+              alt="HTML"
+              className="h-16 w-auto"
             />
             <img
-              src={logoDark}
-              alt="React Router"
-              className="hidden w-full dark:block"
+              src="public/img/logo/css.png"
+              alt="CSS"
+              className="h-16 w-auto"
+            />
+            <img
+              src="public/img/logo/javascript.png"
+              alt="JavaScript"
+              className="h-16 w-auto"
+            />
+            <img
+              src="public/img/logo/react.png"
+              alt="React"
+              className="h-16 w-auto"
+            />
+            <img
+              src="public/img/logo/tailwind.png"
+              alt="Tailwind"
+              className="h-16 w-auto"
+            />
+            <img
+              src="public/img/logo/typescript.png"
+              alt="Typescript"
+              className="h-16 w-auto"
+            />
+            <img
+              src="public/img/logo/laravel.png"
+              alt="Laravel"
+              className="h-16 w-auto"
+            />
+
+            <img
+              src="public/img/logo/html.png"
+              alt="HTML"
+              className="h-16 w-auto"
+            />
+            <img
+              src="public/img/logo/css.png"
+              alt="CSS"
+              className="h-16 w-auto"
+            />
+            <img
+              src="public/img/logo/javascript.png"
+              alt="JavaScript"
+              className="h-16 w-auto"
+            />
+            <img
+              src="public/img/logo/react.png"
+              alt="React"
+              className="h-16 w-auto"
+            />
+            <img
+              src="public/img/logo/tailwind.png"
+              alt="Tailwind"
+              className="h-16 w-auto"
+            />
+            <img
+              src="public/img/logo/typescript.png"
+              alt="Typescript"
+              className="h-16 w-auto"
+            />
+            <img
+              src="public/img/logo/laravel.png"
+              alt="Laravel"
+              className="h-16 w-auto"
             />
           </div>
-        </header>
-        <div className="max-w-[300px] w-full space-y-6 px-4">
-          <nav className="rounded-3xl border border-gray-200 p-6 dark:border-gray-700 space-y-4">
-            <p className="leading-6 text-gray-700 dark:text-gray-200 text-center">
-              What&apos;s next?
+        </section>
+
+        {/* Profil */}
+        <section className="bg-white py-12">
+          <div className="container mx-auto">
+            <div className="text-center">
+              <h1 className="text-dark font-bold text-[40px]">
+                Mengapa <span className="text-blue-500">Mostly</span>
+                <span className="text-orange-500">Web</span>?
+              </h1>
+              <p className="mt-2">
+                Kami hadir untuk memberikan solusi digital terbaik dengan desain
+                modern, performa optimal, dan teknologi terbaru.
+              </p>
+            </div>
+
+            <div className="grid items-stretch mt-10 px-10 gap-6">
+              <div className="col-span-12">
+                <div className="bg-light-500 p-6 rounded-lg flex flex-col md:flex-row items-center">
+                  <div className="mb-4 md:mb-0 md:mr-6">
+                    <img
+                      src="public/img/logo.png"
+                      alt=""
+                      className="w-[800px]"
+                    />
+                  </div>
+                  <div className="text-center md:text-left">
+                    <p className="mb-0 text-dark">
+                      MostlyWeb adalah penyedia jasa pembuatan website
+                      profesional yang berfokus pada solusi digital modern untuk
+                      mendukung pertumbuhan bisnis di berbagai sektor. Kami
+                      menghadirkan desain yang elegan, responsif, serta ramah
+                      pengguna sehingga website dapat diakses dengan optimal di
+                      berbagai perangkat, baik desktop maupun mobile. Selain
+                      itu, tim kami selalu mengutamakan performa, kecepatan,
+                      serta keamanan website agar dapat memberikan pengalaman
+                      terbaik bagi pelanggan Anda. Dengan layanan yang fleksibel
+                      dan harga yang kompetitif, MostlyWeb siap menjadi mitra
+                      strategis dalam mewujudkan kehadiran digital bisnis Anda
+                      secara profesional dan terpercaya.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-span-12 lg:col-span-8">
+                <Profil />
+              </div>
+
+              <div className="col-span-12 lg:col-span-4">
+                <div className="bg-lime-200 rounded-lg flex flex-col justify-between h-full">
+                  <div className="p-6">
+                    <h5 className="font-bold text-[20px]">
+                      Responsive di Semua Perangkat
+                    </h5>
+                    <p className="mt-2">
+                      Website yang kami buat dapat dibuka dengan baik di
+                      desktop, tablet, maupun smartphone tanpa mengurangi
+                      kualitas tampilan maupun fungsi.
+                    </p>
+                  </div>
+                  <div className="text-center p-6">
+                    <img
+                      src="/img/profil-section5.png"
+                      alt="Responsive Phone"
+                      className="mx-auto max-h-64"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Layanan */}
+        <section id="layanan" className="py-12 px-12 bg-white">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-12">
+              <h1 className="text-4xl font-bold">
+                Layanan <span className="text-blue-500">Mostly</span>
+                <span className="text-orange-500">Web</span>
+              </h1>
+              <p className="mt-2">
+                Kami menyediakan berbagai layanan profesional untuk membantu
+                bisnis Anda berkembang di dunia digital.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              <div>
+                <h2 className="text-[40px] font-bold mb-4">
+                  Solusi Digital Bisnis Anda
+                </h2>
+                <p className="mb-4">
+                  Dengan pengalaman di bidang teknologi informasi dan desain,
+                  MostlyWeb menghadirkan layanan pembuatan website yang tidak
+                  hanya menarik secara visual, tetapi juga dioptimalkan untuk
+                  performa tinggi. Kami percaya bahwa website adalah identitas
+                  digital yang penting bagi setiap bisnis.
+                </p>
+                <p>
+                  Selain itu, kami juga menyediakan dukungan penuh mulai dari
+                  hosting, pengelolaan server, hingga desain UI/UX modern yang
+                  ramah pengguna. Semua layanan kami dirancang untuk memberikan
+                  pengalaman terbaik kepada pelanggan Anda.
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                {accordionItems.map((item) => (
+                  <div key={item.id} className="rounded-lg overflow-hidden shadow-sm">
+                    <button
+                      onClick={() =>
+                        setActiveAccordion(
+                          activeAccordion === item.id ? "" : item.id
+                        )
+                      }
+                      className="w-full flex items-center justify-between px-4 py-3 font-semibold bg-gray-100 hover:bg-gray-200">
+                      <span>{item.title}</span>
+                      <IoIosArrowDown
+                        className={`transition-transform duration-300 ${
+                          activeAccordion === item.id
+                            ? "rotate-180"
+                            : "rotate-0"
+                        }`}
+                      />
+                    </button>
+                    {activeAccordion === item.id && (
+                      <div className="px-4 py-3 text-gray-700">
+                        {item.content}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <Layanan />
+          </div>
+        </section>
+
+        {/* Produk */}
+        <section id="produk" className="py-12 px-12 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-8">
+              <h2 className="text-4xl font-bold">
+                Produk <span className="text-blue-500">Mostly</span>
+                <span className="text-orange-500">Web</span>
+              </h2>
+              <p className="text-dark mt-2 mx-auto">
+                Beberapa desain website yang telah kami bangun dan dapat
+                dijadikan referensi untuk custom website sesuai kebutuhan Anda.
+              </p>
+            </div>
+
+            <Produk />
+          </div>
+        </section>
+
+        {/* Testimoni */}
+        <section id="testimoni" className="py-12 bg-white">
+          <div className="text-center mb-10">
+            <h2 className="text-4xl font-bold">
+              Apa Kata Mereka Tentang{" "}
+              <span className="text-blue-500">Mostly</span>
+              <span className="text-orange-500">Web</span>?
+            </h2>
+            <p className="text-dark mt-2">
+              Testimoni dari customer yang sudah menggunakan jasa pembuatan
+              website kami.
             </p>
-            <ul>
-              {resources.map(({ href, text, icon }) => (
-                <li key={href}>
-                  <a
-                    className="group flex items-center gap-3 self-stretch p-3 leading-normal text-blue-700 hover:underline dark:text-blue-500"
-                    href={href}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {icon}
-                    {text}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
+          </div>
+          
+          <Testimoni />
+        </section>
+
+        {/* Kontak */}
+        <section className="py-10 bg-white">
+          <div id="kontak" className="py-10 px- bg-white">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-10">
+                <h2 className="text-4xl font-bold">
+                  Pertanyaan yang Sering Muncul di{" "}
+                  <span className="text-blue-500">Mostly</span>
+                  <span className="text-orange-500">Web</span>
+                </h2>
+                <p className="text-dark mt-2">
+                  Beberapa pertanyaan umum yang sering diajukan customer
+                  terkait layanan pembuatan website kami.
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                {accordionKontak.map((item) => (
+                  <div key={item.id} className="w-full rounded-lg shadow-sm bg-white">
+                    <button
+                      className="w-full flex justify-between items-center p-4 font-semibold text-left"
+                      onClick={() =>
+                        setActiveKontak(
+                          activeKontak === item.id ? "" : item.id
+                        )
+                      }>
+                      {item.pertanyaan}
+                      {activeKontak === item.id ? (
+                        <IoIosArrowDown className="w-5 h-5 transform rotate-180" />
+                      ) : (
+                        <IoIosArrowDown className="w-5 h-5 transform rotate-0" />
+                      )}
+                    </button>
+                    {activeKontak === item.id && (
+                      <div className="px-4 pb-4 text-gray-600">
+                        {item.jawaban}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-12 p-8 bg-blue-500 text-white rounded-lg shadow-lg text-center">
+                <h3 className="text-xl md:text-2xl font-bold mb-3">
+                  Masih Ragu? Konsultasi Gratis Sekarang!
+                </h3>
+                <p className="mb-6">
+                  Diskusikan kebutuhan website Anda bersama tim kami dan temukan
+                  solusi terbaik untuk bisnis Anda.
+                </p>
+                <a
+                  href="https://wa.me/62895370888888"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-white text-blue-500 font-semibold py-2 px-4 rounded-lg hover:bg-gray-100 transition"
+                >
+                  Konsultasi via WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer className="bg-oraneg-500 text-dark">
+          <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 py-4">
+            <div className="mb-4 md:mb-0">
+              <img src="/img/logo.png" alt="Logo" className="h-12 mx-auto md:mx-0" />
+            </div>
+
+            <div className="flex space-x-5 text-xl">
+              <a href="https://wa.me/62XXXXXXXXXX" target="_blank" className="hover:text-green-500 transition">
+                <FaWhatsapp />
+              </a>
+              <a href="mailto:yourmail@gmail.com" className="hover:text-red-500 transition">
+                <FaEnvelope />
+              </a>
+              <a href="https://instagram.com/yourusername" target="_blank" className="hover:text-pink-500 transition">
+                <FaInstagram />
+              </a>
+              <a href="https://tiktok.com/@yourusername" target="_blank" className="hover:text-black transition">
+                <FaTiktok />
+              </a>
+              <a href="https://youtube.com/yourchannel" target="_blank" className="hover:text-red-600 transition">
+                <FaYoutube />
+              </a>
+            </div>
+          </div>
+
+          <div className="border-t border-gray-400 py-3 text-center text-sm text-dark">
+            &copy; 2025 <span className="font-semibold">MostlyWeb</span>. All rights reserved.
+          </div>
+        </footer>
       </div>
     </main>
   );
 }
-
-const resources = [
-  {
-    href: "https://reactrouter.com/docs",
-    text: "React Router Docs",
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="20"
-        viewBox="0 0 20 20"
-        fill="none"
-        className="stroke-gray-600 group-hover:stroke-current dark:stroke-gray-300"
-      >
-        <path
-          d="M9.99981 10.0751V9.99992M17.4688 17.4688C15.889 19.0485 11.2645 16.9853 7.13958 12.8604C3.01467 8.73546 0.951405 4.11091 2.53116 2.53116C4.11091 0.951405 8.73546 3.01467 12.8604 7.13958C16.9853 11.2645 19.0485 15.889 17.4688 17.4688ZM2.53132 17.4688C0.951566 15.8891 3.01483 11.2645 7.13974 7.13963C11.2647 3.01471 15.8892 0.951453 17.469 2.53121C19.0487 4.11096 16.9854 8.73551 12.8605 12.8604C8.73562 16.9853 4.11107 19.0486 2.53132 17.4688Z"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-        />
-      </svg>
-    ),
-  },
-  {
-    href: "https://rmx.as/discord",
-    text: "Join Discord",
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="20"
-        viewBox="0 0 24 20"
-        fill="none"
-        className="stroke-gray-600 group-hover:stroke-current dark:stroke-gray-300"
-      >
-        <path
-          d="M15.0686 1.25995L14.5477 1.17423L14.2913 1.63578C14.1754 1.84439 14.0545 2.08275 13.9422 2.31963C12.6461 2.16488 11.3406 2.16505 10.0445 2.32014C9.92822 2.08178 9.80478 1.84975 9.67412 1.62413L9.41449 1.17584L8.90333 1.25995C7.33547 1.51794 5.80717 1.99419 4.37748 2.66939L4.19 2.75793L4.07461 2.93019C1.23864 7.16437 0.46302 11.3053 0.838165 15.3924L0.868838 15.7266L1.13844 15.9264C2.81818 17.1714 4.68053 18.1233 6.68582 18.719L7.18892 18.8684L7.50166 18.4469C7.96179 17.8268 8.36504 17.1824 8.709 16.4944L8.71099 16.4904C10.8645 17.0471 13.128 17.0485 15.2821 16.4947C15.6261 17.1826 16.0293 17.8269 16.4892 18.4469L16.805 18.8725L17.3116 18.717C19.3056 18.105 21.1876 17.1751 22.8559 15.9238L23.1224 15.724L23.1528 15.3923C23.5873 10.6524 22.3579 6.53306 19.8947 2.90714L19.7759 2.73227L19.5833 2.64518C18.1437 1.99439 16.6386 1.51826 15.0686 1.25995ZM16.6074 10.7755L16.6074 10.7756C16.5934 11.6409 16.0212 12.1444 15.4783 12.1444C14.9297 12.1444 14.3493 11.6173 14.3493 10.7877C14.3493 9.94885 14.9378 9.41192 15.4783 9.41192C16.0471 9.41192 16.6209 9.93851 16.6074 10.7755ZM8.49373 12.1444C7.94513 12.1444 7.36471 11.6173 7.36471 10.7877C7.36471 9.94885 7.95323 9.41192 8.49373 9.41192C9.06038 9.41192 9.63892 9.93712 9.6417 10.7815C9.62517 11.6239 9.05462 12.1444 8.49373 12.1444Z"
-          strokeWidth="1.5"
-        />
-      </svg>
-    ),
-  },
-];

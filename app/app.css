@@ -1,15 +1,26 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --color-light-500: #FFEACD;
+  --color-blue-500: #342C54;
+  --color-orange-500: #FF7F50;
+
+  --font-poppins: Poppins, sans-serif;
 }
 
-html,
-body {
-  @apply bg-white dark:bg-gray-950;
+.slide-track {
+  display: flex;
+  width: calc(250px * 14);
+  animation: scroll 30s linear infinite;
+}
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
   }
 }
