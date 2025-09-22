@@ -8,6 +8,8 @@ import Testimoni from "../components/home/testimoni";
 import { FcGoogle } from "react-icons/fc";
 import { IoIosArrowDown } from "react-icons/io";
 import { FaWhatsapp, FaEnvelope, FaInstagram, FaTiktok, FaYoutube } from "react-icons/fa";
+import LoginForm from "~/components/LoginForm";
+import RegisterForm from "~/components/RegisterForm";
 
 const tampilkanModalLogin = (setModalLogin: any) => {
   setModalLogin(true);
@@ -68,135 +70,11 @@ export function Welcome() {
     <main>
       {/* Modal */}
       <Modal show={modalLogin} setter={setModalLogin} modalName="Modal Login">
-        <div className="form font-poppins">
-          <h1 className="font-extrabold text-center mb-4 mt-2">
-            <span className="text-blue-500 text-[20px]">Mostly</span>
-            <span className="text-orange-500 text-[20px]">Web</span>
-          </h1>
-
-          <form action="" className="grid gap-4">
-            <p className="text-blue-500 font-semibold">
-              Silahkan Masukan Akun Anda
-            </p>
-            <div className="grid gap-4">
-              <div className="w-full">
-                <input
-                  type="email"
-                  className="w-full shadow-md py-2 px-2 rounded-lg"
-                  name=""
-                  id=""
-                  placeholder="Email"
-                />
-              </div>
-              <div className="w-full">
-                <input
-                  type="password"
-                  className="w-full shadow-md py-2 px-2 rounded-lg"
-                  name=""
-                  id=""
-                  placeholder="Password"
-                />
-              </div>
-            </div>
-            <button className="bg-blue-500 text-white font-semibold py-2 px-2 rounded-lg mt-4 mb-4 hover:bg-orange-500 hover:text-black">
-              Masuk
-            </button>
-            <p className="text-blue-500 font-semibold">Atau Masuk Dengan</p>
-            <button className="w-full shadow-md text-white mx-auto rounded-md flex justify-center items-center py-2">
-              <FcGoogle size={24} />
-            </button>
-            <p className="text-blue-500 mt-4 font-semibold">
-              Belum memiliki akun? Silahkan{" "}
-              <a
-                onClick={() => {
-                  setModalLogin(false);
-                  setModalRegister(true);
-                }}
-                className="text-orange-500 hover:text-blue-500"
-                href="#"
-              >
-                Daftar Akun
-              </a>
-            </p>
-          </form>
-        </div>
+        <LoginForm setModalLogin={setModalLogin} setModalRegister={setModalRegister} />
       </Modal>
 
-      <Modal
-        show={modalRegister}
-        setter={setModalRegister}
-        modalName="Modal Register"
-      >
-        <div className="form font-poppins">
-          <h1 className="font-extrabold text-center mb-4 mt-2">
-            <span className="text-blue-500 text-[20px]">Mostly</span>
-            <span className="text-orange-500 text-[20px]">Web</span>
-          </h1>
-
-          <form action="" className="grid gap-4">
-            <p className="text-blue-500 font-semibold">
-              Silahkan Daftarkan Akun Anda
-            </p>
-            <div className="grid gap-4">
-              <div className="w-full">
-                <input
-                  type="text"
-                  className="w-full shadow-md py-2 px-2 rounded-lg"
-                  name=""
-                  id=""
-                  placeholder="Nama"
-                />
-              </div>
-              <div className="w-full">
-                <input
-                  type="text"
-                  className="w-full shadow-md py-2 px-2 rounded-lg"
-                  name=""
-                  id=""
-                  placeholder="No HP"
-                />
-              </div>
-              <div className="w-full">
-                <input
-                  type="email"
-                  className="w-full shadow-md py-2 px-2 rounded-lg"
-                  name=""
-                  id=""
-                  placeholder="Email"
-                />
-              </div>
-              <div className="w-full">
-                <input
-                  type="password"
-                  className="w-full shadow-md py-2 px-2 rounded-lg"
-                  name=""
-                  id=""
-                  placeholder="Password"
-                />
-              </div>
-            </div>
-            <button className="bg-blue-500 text-white font-semibold py-2 px-2 rounded-lg mt-4 mb-4 hover:bg-orange-500 hover:text-black">
-              Daftar
-            </button>
-            <p className="text-blue-500 font-semibold">Atau Daftar Dengan</p>
-            <button className="w-full shadow-md text-white mx-auto rounded-md flex justify-center items-center py-2">
-              <FcGoogle size={24} />
-            </button>
-            <p className="text-blue-500 mt-4 font-semibold">
-              Sudah memiliki akun? Silahkan{" "}
-              <a
-                onClick={() => {
-                  setModalLogin(true);
-                  setModalRegister(false);
-                }}
-                className="text-orange-500 hover:text-blue-500"
-                href="#"
-              >
-                Masuk
-              </a>
-            </p>
-          </form>
-        </div>
+      <Modal show={modalRegister} setter={setModalRegister} modalName="Modal Register">
+        <RegisterForm setModalLogin={setModalLogin} setModalRegister={setModalRegister} />
       </Modal>
 
       <div className="bg-light-500 min-h-screen font-poppins">
@@ -277,29 +155,29 @@ export function Welcome() {
             <img src="public/img/logo/html.png" alt="HTML" className="h-16 w-auto" />
             <img src="public/img/logo/css.png" alt="CSS" className="h-16 w-auto" />
             <img src="public/img/logo/bootstrap.png" alt="Bootstrap" className="h-16 w-auto" />
-            <img src="public/img/logo/javascript.png" alt="JavaScript" className="h-16 w-auto"/>
-            <img src="public/img/logo/react.png" alt="React" className="h-16 w-auto"/>
-            <img src="public/img/logo/tailwind.png" alt="Tailwind" className="h-16 w-auto"/>
-            <img src="public/img/logo/typescript.png" alt="Typescript" className="h-16 w-auto"/>
-            <img src="public/img/logo/laravel.png" alt="Laravel" className="h-16 w-auto"/>
+            <img src="public/img/logo/javascript.png" alt="JavaScript" className="h-16 w-auto" />
+            <img src="public/img/logo/react.png" alt="React" className="h-16 w-auto" />
+            <img src="public/img/logo/tailwind.png" alt="Tailwind" className="h-16 w-auto" />
+            <img src="public/img/logo/typescript.png" alt="Typescript" className="h-16 w-auto" />
+            <img src="public/img/logo/laravel.png" alt="Laravel" className="h-16 w-auto" />
 
             <img src="public/img/logo/html.png" alt="HTML" className="h-16 w-auto" />
             <img src="public/img/logo/css.png" alt="CSS" className="h-16 w-auto" />
             <img src="public/img/logo/bootstrap.png" alt="Bootstrap" className="h-16 w-auto" />
-            <img src="public/img/logo/javascript.png" alt="JavaScript" className="h-16 w-auto"/>
-            <img src="public/img/logo/react.png" alt="React" className="h-16 w-auto"/>
-            <img src="public/img/logo/tailwind.png" alt="Tailwind" className="h-16 w-auto"/>
-            <img src="public/img/logo/typescript.png" alt="Typescript" className="h-16 w-auto"/>
-            <img src="public/img/logo/laravel.png" alt="Laravel" className="h-16 w-auto"/>
+            <img src="public/img/logo/javascript.png" alt="JavaScript" className="h-16 w-auto" />
+            <img src="public/img/logo/react.png" alt="React" className="h-16 w-auto" />
+            <img src="public/img/logo/tailwind.png" alt="Tailwind" className="h-16 w-auto" />
+            <img src="public/img/logo/typescript.png" alt="Typescript" className="h-16 w-auto" />
+            <img src="public/img/logo/laravel.png" alt="Laravel" className="h-16 w-auto" />
 
             <img src="public/img/logo/html.png" alt="HTML" className="h-16 w-auto" />
             <img src="public/img/logo/css.png" alt="CSS" className="h-16 w-auto" />
             <img src="public/img/logo/bootstrap.png" alt="Bootstrap" className="h-16 w-auto" />
-            <img src="public/img/logo/javascript.png" alt="JavaScript" className="h-16 w-auto"/>
-            <img src="public/img/logo/react.png" alt="React" className="h-16 w-auto"/>
-            <img src="public/img/logo/tailwind.png" alt="Tailwind" className="h-16 w-auto"/>
-            <img src="public/img/logo/typescript.png" alt="Typescript" className="h-16 w-auto"/>
-            <img src="public/img/logo/laravel.png" alt="Laravel" className="h-16 w-auto"/>
+            <img src="public/img/logo/javascript.png" alt="JavaScript" className="h-16 w-auto" />
+            <img src="public/img/logo/react.png" alt="React" className="h-16 w-auto" />
+            <img src="public/img/logo/tailwind.png" alt="Tailwind" className="h-16 w-auto" />
+            <img src="public/img/logo/typescript.png" alt="Typescript" className="h-16 w-auto" />
+            <img src="public/img/logo/laravel.png" alt="Laravel" className="h-16 w-auto" />
           </div>
         </section>
 
@@ -421,11 +299,10 @@ export function Welcome() {
                       className="w-full flex items-center justify-between px-4 py-3 font-semibold bg-gray-100 hover:bg-gray-200">
                       <span>{item.title}</span>
                       <IoIosArrowDown
-                        className={`transition-transform duration-300 ${
-                          activeAccordion === item.id
-                            ? "rotate-180"
-                            : "rotate-0"
-                        }`}
+                        className={`transition-transform duration-300 ${activeAccordion === item.id
+                          ? "rotate-180"
+                          : "rotate-0"
+                          }`}
                       />
                     </button>
                     {activeAccordion === item.id && (
@@ -473,7 +350,7 @@ export function Welcome() {
               website kami.
             </p>
           </div>
-          
+
           <Testimoni />
         </section>
 
