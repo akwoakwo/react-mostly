@@ -1,0 +1,246 @@
+{
+    "paket": [
+        {
+            "id": 1,
+            "nama_paket": "Pribadi"
+        },
+        {
+            "id": 2,
+            "nama_paket": "Bisnis"
+        },
+        {
+            "id": 3,
+            "nama_paket": "Desain"
+        }
+    ],
+
+    "layanan": [
+        {
+            "id": 1,
+            "paket_id": 1,
+            "nama_subpaket": "Individu",
+            "harga": 225000,
+            "benefit": [
+                "1 Halaman Website",
+                "Landing Page Design",
+                "Responsive Design",
+                "Copy Writing",
+                "Support 24/7",
+                "Akses Dashboard Website",
+                "Integrasi Media Sosial"
+            ]
+        },
+        {
+            "id": 2,
+            "paket_id": 1,
+            "nama_subpaket": "Kelompok",
+            "harga": 500000,
+            "benefit": [
+                "3 Halaman Website",
+                "Landing Page Design",
+                "Responsive Design",
+                "Copy Writing",
+                "Support 24/7",
+                "Akses Dashboard Website",
+                "Integrasi Media Sosial",
+                "Fitur Google Maps",
+                "Analytic Traffic"
+            ]
+        },
+        {
+            "id": 3,
+            "paket_id": 1,
+            "nama_subpaket": "Komunitas",
+            "harga": 750000,
+            "benefit": [
+                "5 Halaman Website",
+                "Landing Page Design",
+                "Responsive Design",
+                "Free Logo Design",
+                "Copy Writing",
+                "Support 24/7",
+                "Akses Dashboard Website",
+                "Integrasi Media Sosial",
+                "Fitur Google Maps",
+                "Analytic Traffic",
+                "Video Manual Penggunaan Website"
+            ]
+        },
+        {
+            "id": 4,
+            "paket_id": 2,
+            "nama_subpaket": "Perintis",
+            "harga": 1300000,
+            "benefit": [
+                "5 - 10 Halaman Website",
+                "Free Domain (.com, .id, .co.id)",
+                "Responsive Design",
+                "Custom Web Design",
+                "Copy Writing",
+                "Free Logo Design",
+                "Support 24/7",
+                "Akses Dashboard Website",
+                "Integrasi Media Sosial",
+                "Katalog Produk",
+                "Fitur Google Maps",
+                "Analytic Traffic",
+                "Video Manual Penggunaan Website"
+            ]
+        },
+        {
+            "id": 5,
+            "paket_id": 2,
+            "nama_subpaket": "Regular",
+            "harga": 1825000,
+            "benefit": [
+                "11 - 20 Halaman Website",
+                "Free Domain (.com, .id, .co.id)",
+                "Responsive Design",
+                "Custom Web Design",
+                "Copy Writing",
+                "Free Logo Design",
+                "Support 24/7",
+                "Akses Dashboard Website",
+                "Integrasi Media Sosial",
+                "Katalog Produk",
+                "Fitur Google Maps",
+                "Analytic Traffic",
+                "Video Manual Penggunaan Website"
+            ]
+        },
+        {
+            "id": 6,
+            "paket_id": 2,
+            "nama_subpaket": "Profesional",
+            "harga": 3500000,
+            "benefit": [
+                "21 - 35 Halaman Website",
+                "Free Domain (.com, .id, .co.id)",
+                "Shared Hosting",
+                "Responsive Design",
+                "Custom Web Design",
+                "Copy Writing",
+                "Free Logo Design",
+                "Multi Bahasa (Indonesia & Inggris)",
+                "Support 24/7",
+                "Akses Dashboard Website",
+                "Integrasi Media Sosial",
+                "Katalog Produk",
+                "Fitur Google Maps",
+                "Analytic Traffic",
+                "Video Manual Penggunaan Website"
+            ]
+        },
+        {
+            "id": 7,
+            "paket_id": 3,
+            "nama_subpaket": "Desain Dasar",
+            "harga": 150000,
+            "benefit": [
+                "1 - 3 Halaman Website",
+                "Landing Page Design",
+                "Responsive Design",
+                "Copy Writing"
+            ]
+        },
+        {
+            "id": 8,
+            "paket_id": 3,
+            "nama_subpaket": "Desain Menengah",
+            "harga": 350000,
+            "benefit": [
+                "4 - 8 Halaman Website",
+                "Landing Page Design",
+                "Responsive Design",
+                "Copy Writing"
+            ]
+        },
+        {
+            "id": 9,
+            "paket_id": 3,
+            "nama_subpaket": "Desain Atas",
+            "harga": 600000,
+            "benefit": [
+                "8 - 15 Halaman Website",
+                "Landing Page Design",
+                "Responsive Design",
+                "Copy Writing",
+                "Free Logo Design"
+            ]
+        }
+    ],
+
+    "kategori": [
+        {
+            "id": 1,
+            "nama_kategori": "Digital"
+        },
+        {
+            "id": 2,
+            "nama_kategori": "Otomotif"
+        },
+        {
+            "id": 3,
+            "nama_kategori": "Lifestyle"
+        },
+        {
+            "id": 4,
+            "nama_kategori": "Pendidikan"
+        },
+        {
+            "id": 5,
+            "nama_kategori": "Kesehatan"
+        },
+        {
+            "id": 6,
+            "nama_kategori": "Travel"
+        },
+        {
+            "id": 7,
+            "nama_kategori": "Sport"
+        },
+        {
+            "id": 8,
+            "nama_kategori": "Food & Beverages"
+        },
+        {
+            "id": 9,
+            "nama_kategori": "Profil & Portofolio"
+        },
+        {
+            "id": 10,
+            "nama_kategori": "Publikasi"
+        },
+        {
+            "id": 11,
+            "nama_kategori": "Real Estate"
+        }
+    ],
+
+    "produk": [
+        {
+            "id": 1,
+            "kategori_id": 1,
+            "nama_produk": "Digital Store Website",
+            "gambar_produk": "sampul_digital.png"
+        },
+        {
+            "id": 2,
+            "kategori_id": 4,
+            "nama_produk": "Skincare Beauty Website",
+            "gambar_produk": "sampul_bakery.png"
+        },
+        {
+            "id": 3,
+            "kategori_id": 2,
+            "nama_produk": "Automotive Website",
+            "gambar_produk": "sampul_digital.png"
+        },
+        {
+            "id": 4,
+            "kategori_id": 1,
+            "nama_produk": "Digital Store 2 Website",
+            "gambar_produk": "sampul_digital.png"
+        }
+    ]
+}

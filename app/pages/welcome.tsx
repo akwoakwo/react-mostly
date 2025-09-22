@@ -1,9 +1,9 @@
 import { useState } from "react";
 import Modal from "../components/modal";
-import Profil from "../components/profil";
-import Layanan from "../components/layanan";
-import Produk from "../components/produk";
-import Testimoni from "../components/testimoni";
+import Profil from "../components/home/profil";
+import Layanan from "../components/home/layanan";
+import Produk from "../components/home/produk";
+import Testimoni from "../components/home/testimoni";
 
 import { FcGoogle } from "react-icons/fc";
 import { IoIosArrowDown } from "react-icons/io";
@@ -42,17 +42,17 @@ const accordionItems = [
 
 const accordionKontak = [
   {
-    id: 1,
+    id: "kontak1",
     pertanyaan: "Berapa lama waktu pembuatan website?",
     jawaban: "Biasanya sekitar 2–4 minggu tergantung kompleksitas website.",
   },
   {
-    id: 2,
+    id: "kontak2",
     pertanyaan: "Apakah bisa request desain custom?",
     jawaban: "Ya, kami bisa menyesuaikan desain sesuai kebutuhan bisnis Anda.",
   },
   {
-    id: 3,
+    id: "kontak3",
     pertanyaan: "Apakah ada layanan maintenance?",
     jawaban: "Tentu, kami menyediakan paket maintenance bulanan.",
   },
@@ -274,77 +274,32 @@ export function Welcome() {
         {/* Tools */}
         <section className="bg-white mt-55 py-12 overflow-hidden relative">
           <div className="slide-track flex space-x-20">
-            <img
-              src="public/img/logo/html.png"
-              alt="HTML"
-              className="h-16 w-auto"
-            />
-            <img
-              src="public/img/logo/css.png"
-              alt="CSS"
-              className="h-16 w-auto"
-            />
-            <img
-              src="public/img/logo/javascript.png"
-              alt="JavaScript"
-              className="h-16 w-auto"
-            />
-            <img
-              src="public/img/logo/react.png"
-              alt="React"
-              className="h-16 w-auto"
-            />
-            <img
-              src="public/img/logo/tailwind.png"
-              alt="Tailwind"
-              className="h-16 w-auto"
-            />
-            <img
-              src="public/img/logo/typescript.png"
-              alt="Typescript"
-              className="h-16 w-auto"
-            />
-            <img
-              src="public/img/logo/laravel.png"
-              alt="Laravel"
-              className="h-16 w-auto"
-            />
+            <img src="public/img/logo/html.png" alt="HTML" className="h-16 w-auto" />
+            <img src="public/img/logo/css.png" alt="CSS" className="h-16 w-auto" />
+            <img src="public/img/logo/bootstrap.png" alt="Bootstrap" className="h-16 w-auto" />
+            <img src="public/img/logo/javascript.png" alt="JavaScript" className="h-16 w-auto"/>
+            <img src="public/img/logo/react.png" alt="React" className="h-16 w-auto"/>
+            <img src="public/img/logo/tailwind.png" alt="Tailwind" className="h-16 w-auto"/>
+            <img src="public/img/logo/typescript.png" alt="Typescript" className="h-16 w-auto"/>
+            <img src="public/img/logo/laravel.png" alt="Laravel" className="h-16 w-auto"/>
 
-            <img
-              src="public/img/logo/html.png"
-              alt="HTML"
-              className="h-16 w-auto"
-            />
-            <img
-              src="public/img/logo/css.png"
-              alt="CSS"
-              className="h-16 w-auto"
-            />
-            <img
-              src="public/img/logo/javascript.png"
-              alt="JavaScript"
-              className="h-16 w-auto"
-            />
-            <img
-              src="public/img/logo/react.png"
-              alt="React"
-              className="h-16 w-auto"
-            />
-            <img
-              src="public/img/logo/tailwind.png"
-              alt="Tailwind"
-              className="h-16 w-auto"
-            />
-            <img
-              src="public/img/logo/typescript.png"
-              alt="Typescript"
-              className="h-16 w-auto"
-            />
-            <img
-              src="public/img/logo/laravel.png"
-              alt="Laravel"
-              className="h-16 w-auto"
-            />
+            <img src="public/img/logo/html.png" alt="HTML" className="h-16 w-auto" />
+            <img src="public/img/logo/css.png" alt="CSS" className="h-16 w-auto" />
+            <img src="public/img/logo/bootstrap.png" alt="Bootstrap" className="h-16 w-auto" />
+            <img src="public/img/logo/javascript.png" alt="JavaScript" className="h-16 w-auto"/>
+            <img src="public/img/logo/react.png" alt="React" className="h-16 w-auto"/>
+            <img src="public/img/logo/tailwind.png" alt="Tailwind" className="h-16 w-auto"/>
+            <img src="public/img/logo/typescript.png" alt="Typescript" className="h-16 w-auto"/>
+            <img src="public/img/logo/laravel.png" alt="Laravel" className="h-16 w-auto"/>
+
+            <img src="public/img/logo/html.png" alt="HTML" className="h-16 w-auto" />
+            <img src="public/img/logo/css.png" alt="CSS" className="h-16 w-auto" />
+            <img src="public/img/logo/bootstrap.png" alt="Bootstrap" className="h-16 w-auto" />
+            <img src="public/img/logo/javascript.png" alt="JavaScript" className="h-16 w-auto"/>
+            <img src="public/img/logo/react.png" alt="React" className="h-16 w-auto"/>
+            <img src="public/img/logo/tailwind.png" alt="Tailwind" className="h-16 w-auto"/>
+            <img src="public/img/logo/typescript.png" alt="Typescript" className="h-16 w-auto"/>
+            <img src="public/img/logo/laravel.png" alt="Laravel" className="h-16 w-auto"/>
           </div>
         </section>
 
@@ -586,7 +541,7 @@ export function Welcome() {
         </section>
 
         {/* Footer */}
-        <footer className="bg-oraneg-500 text-dark">
+        <footer className="bg-light-500 text-dark">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 py-4">
             <div className="mb-4 md:mb-0">
               <img src="/img/logo.png" alt="Logo" className="h-12 mx-auto md:mx-0" />
