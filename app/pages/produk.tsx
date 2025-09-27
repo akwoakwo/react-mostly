@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router";
 import axios from "axios";
 
-import Modal from "../components/modal";
+import Modal from "../components/ui/modal";
 
 import { FcGoogle } from "react-icons/fc";
 import {
@@ -29,11 +30,12 @@ const tampilkanModalLogin = (setModalLogin: any) => {
 };
 
 export default function Produk() {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [modalLogin, setModalLogin] = useState(false);
   const [modalRegister, setModalRegister] = useState(false);
   const [kategori, setKategori] = useState<Kategori[]>([]);
   const [produk, setProduk] = useState<Produk[]>([]);
-  const [selectedKategori, setSelectedKategori] = useState<number[]>([]);
+  // const [selectedKategori, setSelectedKategori] = useState<number[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -61,11 +63,15 @@ export default function Produk() {
   }, []);
 
   const handleFilterChange = (id: number) => {
-    setSelectedKategori((prev) => {
-        const updated = prev.includes(id) ? prev.filter((cat) => cat !== id) : [...prev, id];
-        return updated;
-    });
-    };
+    let ids = searchParams.getAll("filter");
+    if (ids.includes(id.toString())) {
+      ids = ids.filter((item) => item !== id.toString());
+    } else {
+      ids.push(id.toString());
+    }
+
+    setSearchParams({ filter: ids });
+  };
 
   if (loading) {
     return (
@@ -262,7 +268,7 @@ export default function Produk() {
                         <h5 className="font-bold mb-3">Filter Kategori</h5>
                         {kategori.map((item) => (
                             <div key={item.id} className="flex items-center mb-2">
-                                <input type="checkbox" id={`kategori-${item.id}`} checked={selectedKategori.includes(Number(item.id))} onChange={() => handleFilterChange(Number(item.id))} className="mr-2" />
+                                <input type="checkbox" id={`kategori-${item.id}`} checked={searchParams.getAll('filter').includes(String(item.id))} onChange={() => handleFilterChange(Number(item.id))} className="mr-2" />
                                 <label htmlFor={`kategori-${item.id}`} className="text-sm">
                                     {item.nama_kategori}
                                 </label>
@@ -274,14 +280,13 @@ export default function Produk() {
                     <div className="md:col-span-3">
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                           {(() => {
+                              const selectedKategori = searchParams.getAll("filter").map(Number);
                               const filteredProduk = selectedKategori.length > 0
                                   ? produk.filter((k: any) => selectedKategori.includes(Number(k.kategori_id)))
                                   : produk;
                               if (filteredProduk.length === 0) {
                                   return <div className="col-span-full text-center text-gray-500">Tidak ada produk ditemukan.</div>;
                               }
-                              console.log("Selected kategori:", selectedKategori);
-                              console.log("Filtered produk:", filteredProduk);
 
                               return filteredProduk.map((k) => (
                                   <div key={k.id} className="bg-white shadow rounded-lg overflow-hidden">

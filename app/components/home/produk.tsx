@@ -37,7 +37,7 @@ export default function Produk() {
         <div className="flex justify-center flex-wrap gap-6 mb-10 mt-10">
           {kategori.map((item: any) => (
             <div key={item.id} onClick={() => setActiveKategori(item.id)} className={`w-[70px] h-[200px] border-2 border-gray-300 flex items-center justify-center cursor-pointer font-semibold transition-all writing-mode-vertical-rl rotate-180 ${
-                activeKategori === item.id
+                activeKategori === Number(item.id)
                   ? "bg-orange-500 text-white"
                   : "bg-gray-100 hover:bg-gray-200"
               }`}
